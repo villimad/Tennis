@@ -1,0 +1,36 @@
+.place{
+    width:  800px;
+    height: 500px;
+    margin: auto;
+    margin-top: 4em;
+    background-color: darkolivegreen;
+    position: relative;
+}
+
+.leftDesc{
+    position: absolute;
+    width:  20px;
+    height: 100px;
+    background-color: grey;
+    margin-left: 0;
+    margin-top:  0;
+}
+
+.rightDesc{
+    position: absolute;
+    width:  20px;
+    height: 100px;
+    background-color: grey;
+    margin-left: 780px;
+    margin-top:  0;
+}
+
+.ball{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-left: 400px;
+    margin-top: 250px;
+    background-color: #353535;
+}
+
