@@ -106,7 +106,8 @@ let vectorBall = {
 };
 
 let diffSpeed = {
-  Y: 5
+    X: 10,
+    Y: 5
 };
 
 const getDescCords = function (e) {
@@ -166,6 +167,16 @@ const hit = function () {
             vectorBall.Y = -vectorBall.Y
         }
 
+        if (cordsBall.X <= 0){
+            document.getElementsByClassName('playerR')[0].innerHTML =
+                parseInt(document.getElementsByClassName('playerR')[0].innerHTML) + 1;
+            ball.style.marginLeft = placeWidth/2 + 'px';
+            ball.style.marginTop = placeHeight/2 + 'px';
+            vectorBall.X  = -vectorBall.X;
+            vectorBall.Y = 0;
+            return false;
+        }
+
     }
 
     //right desc
@@ -184,6 +195,16 @@ const hit = function () {
             vectorBall.Y = -vectorBall.Y
         }
 
+        if (cordsBall.X > placeWidth){
+            document.getElementsByClassName('playerL')[0].innerHTML =
+                parseInt(document.getElementsByClassName('playerL')[0].innerHTML) + 1;
+            ball.style.marginLeft = placeWidth/2 + 'px';
+            ball.style.marginTop = placeHeight/2 + 'px';
+            vectorBall.X  = -vectorBall.X;
+            vectorBall.Y = 0;
+            return false;
+        }
+
     }
 };
 
@@ -191,10 +212,12 @@ const hit = function () {
 
 setInterval(function () {
 
-    hit();
+    if (hit() === false){
+        return;
+    }
     let styleValueWidth = parseInt(getStyle(ball, 'margin-left')) + vectorBall.X;
     let styleValueHeight = parseInt(getStyle(ball, 'margin-top')) + vectorBall.Y;
     ball.style.marginLeft = styleValueWidth + 'px';
     ball.style.marginTop = styleValueHeight + 'px';
 
-}, 50);
+}, 30);
