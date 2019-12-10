@@ -212,11 +212,17 @@ const hit = function () {
 
 setInterval(function () {
 
-    if (hit() === false){
+    if (hit() === false) {
         return;
     }
     let styleValueWidth = parseInt(getStyle(ball, 'margin-left')) + vectorBall.X;
     let styleValueHeight = parseInt(getStyle(ball, 'margin-top')) + vectorBall.Y;
+    if (styleValueHeight < 0) {
+        styleValueHeight = 0
+    }
+    if (styleValueHeight > placeHeight - ballHeight) {
+        styleValueHeight = placeHeight - ballHeight
+    }
     ball.style.marginLeft = styleValueWidth + 'px';
     ball.style.marginTop = styleValueHeight + 'px';
 
